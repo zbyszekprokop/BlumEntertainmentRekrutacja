@@ -22,7 +22,6 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage()
     {
-        // currentHealth = Mathf.Clamp(currentHealth - damage, 0, startingHealth);
         if(currentHealth >1)
         {
             LoseHeart(1);

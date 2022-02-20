@@ -32,20 +32,17 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
-            // rb.velocity = new Vector2(-movementSpeed, rb.velocity.y);
             rb.AddForce(new Vector2(-movementSpeed,0), ForceMode2D.Impulse);
             animator.SetBool("isMoving", true);
         }
     
         else if (Input.GetAxisRaw("Horizontal") > 0)
         {
-            // rb.velocity = new Vector2(movementSpeed, rb.velocity.y);
             rb.AddForce(new Vector2(movementSpeed,0), ForceMode2D.Impulse);
             animator.SetBool("isMoving", true);
         }
         else 
        {
-        //    rb.velocity = new Vector2(0,rb.velocity.y);
            animator.SetBool("isMoving", false);
        }
   }        
@@ -67,7 +64,7 @@ public class PlayerController : MonoBehaviour
     }
     void Attack()
     {
-        if(Input.GetKeyDown("space"))
+        if(Input.GetKeyDown("space")&&isGrounded())
         {
             animator.SetBool("isAttacking", true);
             Collider2D[]enemyHit =  Physics2D.OverlapCircleAll(attackCheck.position, attackRange, enemyLayer);

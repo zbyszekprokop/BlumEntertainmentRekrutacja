@@ -10,7 +10,6 @@ public class Coin : MonoBehaviour
         if(other.gameObject.CompareTag("Player"))
         {
             CountCoin.coins.ChangeScore(coinValue);
-            Debug.Log("colliding");
             Destroy(gameObject);
         }
 

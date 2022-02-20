@@ -42,6 +42,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: Ground
+    uniqueID: 1847081917
+    locked: 0
   - name: Hero
     uniqueID: 2420745843
     locked: 0
@@ -50,4 +53,7 @@ TagManager:
     locked: 0
   - name: MushroomEnemy
     uniqueID: 2627406757
+    locked: 0
+  - name: Background1
+    uniqueID: 545853875
     locked: 0
