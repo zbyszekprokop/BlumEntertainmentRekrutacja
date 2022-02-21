@@ -11,7 +11,6 @@ public class PlayerController : MonoBehaviour
    [SerializeField]LayerMask groundLayer;
    public Animator animator;
    public Transform attackCheck;
-   
    private Rigidbody2D rb;
    private BoxCollider2D boxcoll;
     void Start()
