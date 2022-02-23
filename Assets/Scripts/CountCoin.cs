@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class CountCoin : MonoBehaviour
 {
@@ -21,4 +22,5 @@ public class CountCoin : MonoBehaviour
         score += coinValue;
         UIText.text = score.ToString();
     }
+
 }

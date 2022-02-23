@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
+  - Soundtrack
+  - Potion
+  - NextLevel
   layers:
   - Default
   - TransparentFX

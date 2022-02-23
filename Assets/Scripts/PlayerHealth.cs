@@ -9,6 +9,10 @@ public class PlayerHealth : MonoBehaviour
     [SerializeField]int startingHealth =3;
     [SerializeField]Image[] hearts;
     public Animator animator;
+    public AudioSource playerSFX;
+    public AudioClip playerHit;
+    public AudioClip playerDies;
+    public AudioClip playerHealthUp;
     PlayerController playerController;
     Rigidbody2D rb;
     int currentHealth=3;
@@ -28,10 +32,7 @@ public class PlayerHealth : MonoBehaviour
         }
         else
         {
-            LoseHeart(1);
-            animator.SetBool("isDead", true);
-            playerController.enabled = false;
-            Invoke("RestartLevel", 2f);
+            PlayerDies();
         }
     }
     void OnCollisionEnter2D(Collision2D other) 
@@ -43,6 +44,17 @@ public class PlayerHealth : MonoBehaviour
             TakeDamage();
         }
     }
+    void OnTriggerEnter2D(Collider2D other) 
+    {
+        if(other.gameObject.CompareTag("Potion"))
+        {
+            if(currentHealth<3)
+            {
+                AddHeart();
+                Destroy(other.gameObject);
+            }
+        }        
+    }
     void RestartLevel()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
@@ -51,5 +63,21 @@ public class PlayerHealth : MonoBehaviour
     {
         currentHealth-=damage;
         hearts[currentHealth].enabled=false;
+        playerSFX.PlayOneShot(playerHit);
+    }
+    void AddHeart()
+    {
+        playerSFX.PlayOneShot(playerHealthUp);
+        hearts[currentHealth].enabled=true;
+        currentHealth++;
+    }
+    void PlayerDies()
+    {
+            LoseHeart(1);
+            playerSFX.PlayOneShot(playerDies);
+            animator.SetBool("isDead", true);
+            playerController.enabled = false;
+            gameObject.GetComponent<Collider2D>().enabled=false;
+            Invoke("RestartLevel", 2f);        
     }
 }
