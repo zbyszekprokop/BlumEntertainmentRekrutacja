@@ -10,7 +10,7 @@ public class EnemyHealth : MonoBehaviour
     public AudioSource enemySFX;
     public AudioClip enemyHit;
     public AudioClip enemyDies;
-    int currentHealth;
+    public int currentHealth;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,5 +35,6 @@ public class EnemyHealth : MonoBehaviour
         GetComponent<BoxCollider2D>().enabled=false;
         GetComponent<Rigidbody2D>().constraints = RigidbodyConstraints2D.FreezeAll;
         this.enabled=false;
+        Destroy(gameObject, 0.6f);
     }
 }

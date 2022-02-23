@@ -32,13 +32,13 @@ public class PlayerController : MonoBehaviour
     {
         if (Input.GetAxisRaw("Horizontal") < 0)
         {
-            rb.AddForce(new Vector2(-movementSpeed,0), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(-movementSpeed*Time.deltaTime,0), ForceMode2D.Impulse);
             animator.SetBool("isMoving", true);
         }
     
         else if (Input.GetAxisRaw("Horizontal") > 0)
         {
-            rb.AddForce(new Vector2(movementSpeed,0), ForceMode2D.Impulse);
+            rb.AddForce(new Vector2(movementSpeed*Time.deltaTime,0), ForceMode2D.Impulse);
             animator.SetBool("isMoving", true);
         }
         else 

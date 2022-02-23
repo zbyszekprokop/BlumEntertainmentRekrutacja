@@ -206,6 +206,7 @@ MonoBehaviour:
   playerSFX: {fileID: 1350516699}
   playerHit: {fileID: 8300000, guid: 2bbd0c1f0b1bd894587844e9fc6c6f09, type: 3}
   playerDies: {fileID: 8300000, guid: 73df57f5e19bcb0468dd650b0eb634e6, type: 3}
+  playerHealthUp: {fileID: 8300000, guid: ca90b8aac658b7645b3b36af15a01dc9, type: 3}
 --- !u!114 &554811841
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +219,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0175a989796aece4aae827ea72e6a6c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 0.01
+  movementSpeed: 13
   jumpForce: 530
   attackRange: 0.45
   enemyLayer:

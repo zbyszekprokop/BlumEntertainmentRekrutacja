@@ -8,6 +8,8 @@ TagManager:
   - Soundtrack
   - Potion
   - NextLevel
+  - Stomper
+  - StompCheck
   layers:
   - Default
   - TransparentFX

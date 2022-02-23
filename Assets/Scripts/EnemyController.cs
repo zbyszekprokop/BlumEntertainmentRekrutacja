@@ -15,16 +15,15 @@ public class EnemyController : MonoBehaviour
     public Transform enemyAttackCheck;
     public Rigidbody2D rb;
     public Animator animator;
+    EnemyHealth enemyHealth;
     bool shouldFlip;
     public float timeToAttack;
     float knockbackForce=3f;
 
     void Start()
     {
- 
+        enemyHealth=GetComponent<EnemyHealth>();
     }
-
-    // Update is called once per frame
     void Update()
     {
         if(timeToAttack >0)
@@ -79,5 +78,14 @@ public class EnemyController : MonoBehaviour
         if(enemyAttackCheck==null)
         return;
         Gizmos.DrawWireSphere(enemyAttackCheck.position, enemyRange);
+    }
+    void OnTriggerEnter2D(Collider2D other) 
+    {
+        if(other.gameObject.CompareTag("Player")&&enemyHealth.currentHealth>1)
+        {
+            animator.SetTrigger("Stomp");
+            Vector2 direction = new Vector2(target.transform.position.x, target.transform.position.y) - new Vector2(transform.position.x, transform.position.y);
+            target.GetComponent<Rigidbody2D>().AddForce(new Vector2(direction.x ,knockbackForce*4),ForceMode2D.Impulse);
+        }
     }
 }
